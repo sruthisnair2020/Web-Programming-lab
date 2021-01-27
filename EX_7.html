@@ -1,0 +1,97 @@
+<html >
+  <head>
+    
+   <style>
+     body
+     {
+       background-color:cyan;
+        }     
+      
+        td
+       {
+          padding:10px;
+       }
+       tr.month
+       {
+        color:red;
+        font-size:20px;
+       }
+    </style>
+ </head>
+
+  <body>
+    <div align='center' ><br><br>
+      <b>Year </b>
+      <select id="year">
+        <script>
+          var year=[];
+          var i;
+          for(i=0; i<32; i++)
+          {
+            year.push(1990+i);
+          }
+          for(i=0; i<year.length; i++)
+          {
+            document.write("<option value='" + year[i] + "'>" + year[i] + "</option>")
+          }
+        </script>
+      </select>
+      &nbsp;&nbsp;
+      <p><button type="button" name="View" onclick="createCalendar()">view Calendar</button></p>
+      <br><br><br>
+
+      <div id="calendar">
+      </div>
+
+      <script>
+        function createCalendar()
+        {
+          var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          var j;
+          var d="";
+          d+="<table><tr class='month'><th>January</th> <th>February</th><th>March</th></tr>";
+          for(j=0; j<12; j++)
+          {
+            d+="<td><table border='1' style='float:left; margin-left: 2%; border-collapse:collapse;'><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+            var mm = j;
+            var yy = document.getElementById('year').value;
+            var c = new Date(yy, mm, 1);
+            var day = c.getDay();
+            var i;
+            for(i=0; i<day; i++)
+            {
+              d+="<td></td>";
+            }
+            while(c.getMonth()==mm)
+            {
+              d+="<td>"+ c.getDate()+ "</td>";
+              if(c.getDay()%7==6)
+              {
+                d+="</tr><tr>";
+              }
+              c.setDate(c.getDate()+1);
+            }
+
+            d+="</tr></table></td>";
+            if(mm==2)
+            {
+                d+="</tr><tr class='month'><th>April</th><th>May</th><th>June</th></tr>";
+            }
+
+            if(mm==5)
+            {
+                d+="</tr><tr class='month'><th>July</th><th>August</th><th>September</th></tr>";
+            }
+            else if(mm == 8)
+            {
+              d+="</tr><tr class='month'><th>October</th><th>November</th><th>December</th></tr>";
+            }
+          }
+          d+="</tr></table>"
+          document.getElementById('calendar').innerHTML = d;
+        }
+      </script>
+    </div>
+
+  </body>
+</html>

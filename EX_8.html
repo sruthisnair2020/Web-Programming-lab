@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>form validation</title>
+</head>
+<style>
+        body
+        {
+            
+            color:rgb(red, green, blue);
+        }
+        
+        table
+        {
+       
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:1em;
+        padding:1em;
+
+        }
+
+        .center th
+         {
+         text-align: center;
+         }
+
+</style>
+<script>  
+
+function validateform()
+{  
+var name=document.myform.name.value;  
+var password=document.myform.password.value;  
+var phone=document.myform.phone.value;
+var Email=document.myform.Email.value;
+
+ 
+    if (name==null || name=="")
+    {
+    alert("Name can't be blank");  
+    return false;  
+    }
+    if(password.length < 6)
+    {  
+    alert("Password must be at least 6 characters long.");  
+    return false;  
+    }  
+    if (phone == "") 
+    {
+    alert("Enter Mobile number");
+    return false;
+    }
+    else if (isNaN(phone)) 
+    {
+    alert("Enter valid Mobile number");
+    return false;
+    }
+    else if (phone.length != 10) 
+    {
+    alert("Enter Mobile number with 10 digit");
+    return false;
+    }
+}  
+</script>  
+
+<body> 
+     <BR><BR>
+
+    <center>
+        <h1>
+            <b><u>FORM VALIDATION</u></b>
+        </h1>
+    
+<form name="myform" method="post" action=" " onsubmit="return validateform()" >  
+    <table height="60%" ><pre>
+        <tr>
+            <th><h3>
+                &nbsp;&nbsp;Name &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name"> 
+            </h3></th>
+        </tr>
+        <tr>
+            <th><h3>
+               Email id &nbsp;&nbsp;<input type="email"  name="Email">
+            </h3></th>
+        </tr>
+        <tr>
+            <th><h3>
+                Password &nbsp;&nbsp;<input type="password" name="password"  >
+            </h3></th>
+        </tr>
+        
+        <tr>
+            <th><h3  align="center">
+                phone no &nbsp;&nbsp;<input type="text" name="phone">
+            </h3></th>
+        </tr></pre>
+        <tr class="center">
+           
+                <th colspan="2"><input type="submit" value="submit"></th>
+            
+        </tr>
+      
+    </table>
+</form> 
+</center> 
+</body>
+</html>

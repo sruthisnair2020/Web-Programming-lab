@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+div
+{
+height:80%;
+width:70%;
+padding:15px;
+margin:auto;
+background-color:black;
+}
+</style>
+</head>
+<body>
+<br><br><br>
+<div>
+<center id="center">
+    <img src="image.jpg" id="img" height="50%"><br><br>
+    <h1 id="a" style="color:Pink";>Click ME!!!!</h1>
+    <h1 id="b"></h1>
+</center>
+<script>
+document.getElementById("center").addEventListener("mouseover",on);
+document.getElementById("center").addEventListener("mouseout",out);
+function on()
+{
+document.getElementById("img").src="image1.jpg";
+document.getElementById("a").style.display="none";  
+document.getElementById("b").style.display="block";
+document.body.style.background="peach";
+}
+function out()
+{
+document.getElementById("img").src="image.jpg";
+document.getElementById("a").style.display="block";
+document.getElementById("b").style.display="none";
+document.body.style.background="yellow";
+}
+</script>
+</div>
+</body>
+</html>
